@@ -42,7 +42,8 @@ class FeedDetailsState extends State<FeedDetails> {
         Container(
             height: double.infinity,
             child: Image.network(
-              widget.post.imageUrl,
+//             widget.post.imageUrl,
+              'https://novationmusic.com/sites/novation/files/FYS-EventsPageHeader-Desktop.png',
               fit: BoxFit.cover,
             )),
         SafeArea(
@@ -111,9 +112,7 @@ class FeedDetailsState extends State<FeedDetails> {
           )),
           SlidingUpPanel(
             minHeight: 65.0,
-            maxHeight: (widget.post.commentsCount <= 3)
-                ? MediaQuery.of(context).size.height * 0.45
-                : MediaQuery.of(context).size.height * 0.65,
+            maxHeight: MediaQuery.of(context).size.height * 0.50,
             panel: new Scaffold(
                 body: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -135,9 +134,7 @@ class FeedDetailsState extends State<FeedDetails> {
                       SizedBox(height: 13.0),
                       Center(child: Text("Comments")),
                       Container(
-                        height: (widget.post.commentsCount <= 3)
-                            ? MediaQuery.of(context).size.height * 0.32
-                            : MediaQuery.of(context).size.height * 0.52,
+                        height:MediaQuery.of(context).size.height * 0.36,
                         child: new CommentCategory(
                             postKey: widget.post.key,
                             commentCount: widget.post.commentsCount),
