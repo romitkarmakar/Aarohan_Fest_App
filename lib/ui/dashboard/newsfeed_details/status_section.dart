@@ -32,6 +32,14 @@ class _StatusCategoryState extends State<StatusCategory> {
   NewsfeedItem postItem;
 
   @override
+  void setState(fn) {
+    if(mounted){
+      super.setState(fn);
+    }
+  }
+
+
+@override
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -96,25 +104,31 @@ class _StatusCategoryState extends State<StatusCategory> {
                             }
                           }),
                       Padding(
-                        padding: EdgeInsets.only(top: 10.0),
+                        padding: EdgeInsets.only(top: 2.0),
                       ),
                       Text("$numberOfLikes")
                     ],
                   ),
                   Column(
                     children: <Widget>[
-                      Icon(Icons.comment, color: Colors.grey),
+                      IconButton(
+                          icon: Icon(Icons.comment, color: Colors.grey),
+                          onPressed: () {
+                          }),
                       Padding(
-                        padding: EdgeInsets.only(top: 10.0),
+                        padding: EdgeInsets.only(top: 2.0),
                       ),
                       Text(widget.commentsCount.toString())
                     ],
                   ),
                   Column(
                     children: <Widget>[
-                      Icon(Icons.date_range, color: Colors.grey),
+                      IconButton(
+                          icon: Icon(Icons.date_range, color: Colors.grey),
+                          onPressed: () {
+                          }),
                       Padding(
-                        padding: EdgeInsets.only(top: 10.0),
+                        padding: EdgeInsets.only(top: 2.0),
                       ),
                       Text(widget.date)
                     ],
